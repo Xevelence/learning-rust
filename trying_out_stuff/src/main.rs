@@ -1,19 +1,14 @@
 fn main() {
-	#[derive(Debug)]
-	struct Cuboid {
-		width: u32,
-		height: u32,
-		depth: u32
+	enum Shape {
+		Cuboid{length: u8, width: u8, height: u8},
+		Sphere(f64)
 	}
-	impl Cuboid {
-		fn area(&self) -> u32 {
-			self.width * self.height * self.depth
-		}
-		fn new(width: u32, height: u32, depth: u32) -> Cuboid {
-			Cuboid { width, height, depth }
-		}
+	impl Shape {
+		fn hello(){println!("hello");}
+		fn area(&self) {println!("I don't know what I'm doing!")}
 	}
-	let cub = Cuboid::new(10, 10, 10);
-	println!("{}", cub.area());
-	println!("cub has the following state: {:#?}", cub)
+	let s1 = Shape::Sphere(3.14f64);
+	let b1 = Shape::Cuboid{length: 3, width: 3, height: 3};
+	Shape::hello();
+	s1.area();
 }
